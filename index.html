@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>X2App - Семестровая работа</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="page-container">
+        <header class="header">
+            <h1>Главная</h1>
+        </header>
+
+        <nav class="nav">
+            <ul class="nav-list">
+                <li class="nav-item"><a class="nav-link active" href="index.html">Главная</a></li>
+                <li class="nav-item"><a class="nav-link" href="news.html">Новости</a></li>
+                <li class="nav-item"><a class="nav-link" href="goods.html">Товары</a></li>
+                <li class="nav-item"><a class="nav-link" href="contacts.html">Контакты</a></li>
+            </ul>
+        </nav>
+
+        <main class="content">
+            <article class="profile-header">
+                <h1 class="profile-title">Информация об авторе</h1>
+                <img class="profile-photo" src="https://i.pinimg.com/736x/04/3e/46/043e46692de4c9aa819114644c764f46.jpg" alt="Фото автора">
+                <h2 class="profile-name">Денис Алексеич</h2>
+                <p class="profile-group">ЭФБО-15-24</p>
+                <button class="contact-button" onclick="contactModal.showModal()">Связаться со мной</button>
+            </article>
+
+            <section class="about-me">
+                <h2>Обо мне</h2>
+                <p>ПР ов несмирно рукипошвам армейский пой меня крой дырбулщищ</p>
+            </section>
+
+            <section class="skills-container">
+                <h2>Мои навыки</h2>
+                <div class="skills-grid">
+                    <div class="skill-tag">HTML5</div>
+                    <div class="skill-tag">CSS3</div>
+                    <div class="skill-tag">JavaScript</div>
+                    <div class="skill-tag">React</div>
+                    <div class="skill-tag">Node.js</div>
+                    <div class="skill-tag">Git</div>
+                </div>
+            </section>
+
+            <section class="experience-section">
+                <h2 class="section-title">Мой опыт работы</h2>
+                <div class="experience-grid">
+                    <article class="experience-card">
+                        <h3 class="experience-title">Frontend разработчик</h3>
+                        <p class="experience-desc">Разработка пользовательских интерфейсов с использованием современных технологий. Создание адаптивных и кроссбраузерных веб-приложений.</p>
+                        <button class="details-button" onclick="detailsModal1.showModal()">Подробнее</button>
+                    </article>
+                    <article class="experience-card">
+                        <h3 class="experience-title">Веб-дизайнер</h3>
+                        <p class="experience-desc">Создание макетов и прототипов интерфейсов. Работа с графическими редакторами и инструментами проектирования пользовательского опыта.</p>
+                        <button class="details-button" onclick="detailsModal2.showModal()">Подробнее</button>
+                    </article>
+                    <article class="experience-card">
+                        <h3 class="experience-title">Fullstack разработчик</h3>
+                        <p class="experience-desc">Разработка полного стека приложений от интерфейса до серверной логики. Интеграция с базами данных и сторонними API.</p>
+                        <button class="details-button" onclick="detailsModal3.showModal()">Подробнее</button>
+                    </article>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>© 2025 X2App. Все права защищены.</p>
+        </footer>
+    </div>
+
+    <!-- Модальное окно для формы обратной связи -->
+    <dialog id="contactModal" class="modal">
+        <div class="modal-header">
+            <h2>Форма обратной связи</h2>
+            <button class="close-button" onclick="contactModal.close()">×</button>
+        </div>
+        <div class="modal-content">
+            <form id="feedbackForm" method="dialog">
+                <div class="form-group">
+                    <label for="name">Имя <span class="required">*</span></label>
+                    <input type="text" id="name" name="name" required placeholder="Введите ваше имя">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Телефон <span class="required">*</span></label>
+                    <input type="tel" id="phone" name="phone" required placeholder="+7 (XXX) XXX-XX-XX">
+                </div>
+                <div class="form-group">
+                    <label for="email">Электронная почта <span class="required">*</span></label>
+                    <input type="email" id="email" name="email" required placeholder="example@mail.ru">
+                </div>
+                <div class="form-group">
+                    <label for="category">Категория обращения <span class="required">*</span></label>
+                    <select id="category" name="category" required>
+                        <option value="">Выберите категорию</option>
+                        <option value="technical">Техническая поддержка</option>
+                        <option value="commercial">Коммерческое предложение</option>
+                        <option value="cooperation">Сотрудничество</option>
+                        <option value="complaint">Жалоба</option>
+                        <option value="suggestion">Предложение</option>
+                        <option value="other">Другое</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Текст обращения <span class="required">*</span></label>
+                    <textarea id="message" name="message" required placeholder="Опишите вашу проблему или вопрос..."></textarea>
+                </div>
+                <div class="modal-actions">
+                    <button type="submit" class="btn btn-secondary">Отмена</button>
+                    <button type="button" class="btn btn-primary" onclick="submitForm()">Отправить</button>
+                </div>
+            </form>
+        </div>
+    </dialog>
+
+    <!-- Модальные окна для деталей опыта работы -->
+    <dialog id="detailsModal1" class="modal">
+        <div class="modal-header">
+            <h2>Frontend разработчик</h2>
+            <button class="close-button" onclick="detailsModal1.close()">×</button>
+        </div>
+        <div class="modal-content">
+            <h3>Детали опыта работы</h3>
+            <p><strong>Период:</strong> 2022-2024</p>
+            <p><strong>Компания:</strong> TechSolutions Inc.</p>
+            <p><strong>Обязанности:</strong></p>
+            <ul>
+                <li>Разработка SPA приложений на React</li>
+                <li>Оптимизация производительности веб-приложений</li>
+                <li>Кроссбраузерная и адаптивная верстка</li>
+                <li>Интеграция с REST API</li>
+            </ul>
+            <div class="modal-actions">
+                <button class="btn btn-secondary" onclick="detailsModal1.close()">Закрыть</button>
+            </div>
+        </div>
+    </dialog>
+
+    <dialog id="detailsModal2" class="modal">
+        <div class="modal-header">
+            <h2>Веб-дизайнер</h2>
+            <button class="close-button" onclick="detailsModal2.close()">×</button>
+        </div>
+        <div class="modal-content">
+            <h3>Детали опыта работы</h3>
+            <p><strong>Период:</strong> 2020-2022</p>
+            <p><strong>Компания:</strong> CreativeDesign Studio</p>
+            <p><strong>Обязанности:</strong></p>
+            <ul>
+                <li>Создание UI/UX дизайна для веб-приложений</li>
+                <li>Разработка дизайн-систем и гайдлайнов</li>
+                <li>Прототипирование и пользовательское тестирование</li>
+                <li>Визуальный дизайн и брендинг</li>
+            </ul>
+            <div class="modal-actions">
+                <button class="btn btn-secondary" onclick="detailsModal2.close()">Закрыть</button>
+            </div>
+        </div>
+    </dialog>
+
+    <dialog id="detailsModal3" class="modal">
+        <div class="modal-header">
+            <h2>Fullstack разработчик</h2>
+            <button class="close-button" onclick="detailsModal3.close()">×</button>
+        </div>
+        <div class="modal-content">
+            <h3>Детали опыта работы</h3>
+            <p><strong>Период:</strong> 2024-настоящее время</p>
+            <p><strong>Компания:</strong> Digital Innovations</p>
+            <p><strong>Обязанности:</strong></p>
+            <ul>
+                <li>Полный цикл разработки веб-приложений</li>
+                <li>Backend на Node.js и Express</li>
+                <li>Работа с базами данных MongoDB и PostgreSQL</li>
+                <li>DevOps и деплой приложений</li>
+            </ul>
+            <div class="modal-actions">
+                <button class="btn btn-secondary" onclick="detailsModal3.close()">Закрыть</button>
+            </div>
+        </div>
+    </dialog>
+
+    <script>
+        // Функция для отправки формы
+        function submitForm() {
+            const form = document.getElementById('feedbackForm');
+            const formData = new FormData(form);
+
+            // Простая валидация
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+
+            // Собираем данные формы
+            const data = {
+                name: formData.get('name'),
+                phone: formData.get('phone'),
+                email: formData.get('email'),
+                category: formData.get('category'),
+                message: formData.get('message')
+            };
+
+            // В реальном приложении здесь был бы AJAX-запрос
+            console.log('Данные формы:', data);
+
+            // Показываем уведомление об успешной отправке
+            alert('Спасибо! Ваше обращение отправлено. Мы свяжемся с вами в ближайшее время.');
+
+            // Закрываем модальное окно
+            contactModal.close();
+
+            // Очищаем форму
+            form.reset();
+        }
+
+        // Закрытие модального окна по клику на фон
+        document.querySelectorAll('.modal').forEach(modal => {
+            modal.addEventListener('click', function(event) {
+                if (event.target === this) {
+                    this.close();
+                }
+            });
+        });
+
+        // Обработка отправки формы через Enter (предотвращаем стандартное поведение)
+        document.getElementById('feedbackForm').addEventListener('keypress', function(event) {
+            if (event.key === 'Enter' && event.target.type !== 'textarea') {
+                event.preventDefault();
+            }
+        });
+
+        // Закрытие по ESC уже встроено в браузер для <dialog>
+    </script>
+</body>
+</html>
